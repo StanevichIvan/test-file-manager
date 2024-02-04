@@ -2,6 +2,8 @@ const supportedCommands = {
     up: '',
     cd: ['path_to_directory'],
     ls: '',
+    cat: ['path_to_file'],
+    add: ['new_file_name'],
 };
 export const parseCommand = (data) => {
     const params = data.split(' ').filter(Boolean);
