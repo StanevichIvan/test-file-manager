@@ -4,6 +4,7 @@ const commandFileMap = {
     ls: import('../commands/ls.mjs').then(m => m.ls),
     cat: import('../commands/cat.mjs').then(m => m.cat),
     add: import('../commands/add.mjs').then(m => m.add),
+    rn: import('../commands/rn.mjs').then(m => m.rn),
 }
 
 export class Mediator {
