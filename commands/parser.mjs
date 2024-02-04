@@ -8,6 +8,7 @@ const supportedCommands = {
     cp: ['path_to_file', 'path_to_new_directory'],
     mv: ['path_to_file', 'path_to_new_directory'],
     rm: ['path_to_file'],
+    os: ['flag']
 };
 export const parseCommand = (data) => {
     const params = data.split(' ').filter(Boolean);
