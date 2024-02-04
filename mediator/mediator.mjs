@@ -9,6 +9,7 @@ const commandFileMap = {
     mv: import('../commands/mv.mjs').then(m => m.mv),
     rm: import('../commands/rm.mjs').then(m => m.rm),
     os: import('../commands/os.mjs').then(m => m.os),
+    hash: import('../commands/hash.mjs').then(m => m.hash),
 }
 
 export class Mediator {
