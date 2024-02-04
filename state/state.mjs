@@ -1,6 +1,12 @@
+import path from "path";
+import {fileURLToPath} from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export const createState = () => {
     let state = {
-        workDirectory: '~',
+        workDirectory: path.resolve('~'),
     };
 
     return {
@@ -12,3 +18,5 @@ export const createState = () => {
         }
     };
 };
+
+export const state = createState();
