@@ -11,6 +11,7 @@ const supportedCommands = {
     os: ['flag'],
     hash: ['path_to_file'],
     compress: ['path_to_file', 'path_to_destination'],
+    decompress: ['path_to_file', 'path_to_destination'],
 };
 export const parseCommand = (data) => {
     const params = data.split(' ').filter(Boolean);

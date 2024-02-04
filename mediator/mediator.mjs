@@ -11,6 +11,7 @@ const commandFileMap = {
     os: import('../commands/os.mjs').then(m => m.os),
     hash: import('../commands/hash.mjs').then(m => m.hash),
     compress: import('../commands/compress.mjs').then(m => m.compress),
+    decompress: import('../commands/decompress.mjs').then(m => m.decompress),
 }
 
 export class Mediator {
