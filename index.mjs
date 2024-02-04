@@ -9,17 +9,27 @@ import {printFarewell} from "./helpers/outputs/farewell.mjs";
 import {printWorkDir} from "./helpers/outputs/workdir.mjs";
 import {Mediator} from "./mediator/mediator.mjs";
 import {parseCommand} from "./commands/parser.mjs";
-import {printInvalidInput} from "./helpers/outputs/errors.mjs";
+import {printExecutionFailed, printInvalidInput} from "./helpers/outputs/errors.mjs";
 import {state} from "./state/state.mjs";
+import {InputValidationError} from "./errors/input-validation.mjs";
+import {ExecutionError} from "./errors/execution.mjs";
 
 const onData = state => mediator => async (data) => {
     data = data.toString().replace(/\n/g, ' ');
 
     try {
-        const { command, params } = parseCommand(data);
+        const {command, params} = parseCommand(data);
         await mediator.onCommand(command, params);
     } catch (e) {
-        printInvalidInput();
+        if (e instanceof InputValidationError) {
+            printInvalidInput();
+            return;
+        }
+        if (e instanceof ExecutionError) {
+            printExecutionFailed();
+            return;
+        }
+        console.error(e);
     }
 };
 

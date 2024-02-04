@@ -1,3 +1,5 @@
+import {ExecutionError} from "../errors/execution.mjs";
+
 const commandFileMap = {
     up: import('../commands/up.mjs').then(m => m.goUp),
     cd: import('../commands/cd.mjs').then(m => m.cd),
@@ -17,6 +19,11 @@ const commandFileMap = {
 export class Mediator {
     async onCommand(command, params) {
         const commandHandler = await commandFileMap[command];
-        commandHandler(params);
+
+        try {
+            commandHandler(params);
+        } catch (e) {
+            throw new ExecutionError(e);
+        }
     }
 }
