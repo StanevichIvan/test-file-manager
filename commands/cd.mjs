@@ -1,8 +1,6 @@
 import path from "path";
 import {state} from "../state/state.mjs";
 
-const ROOT_DIR = '/';
-
 export const cd = (params) => {
     const {workDirectory} = state.getState();
     const newPath = params['path_to_directory'] ?? '';
