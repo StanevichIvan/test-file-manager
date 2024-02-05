@@ -1,4 +1,4 @@
-import { open } from "node:fs/promises";
+import {open} from "node:fs/promises";
 import {state} from "../state/state.mjs";
 
 export const add = async (data) => {
