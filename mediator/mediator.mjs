@@ -24,7 +24,7 @@ export class Mediator {
         const commandHandler = await commandFileMap[command];
 
         try {
-            commandHandler(params);
+            await commandHandler(params);
         } catch (e) {
             throw new ExecutionError(e);
         }
