@@ -18,6 +18,9 @@ const commandFileMap = {
 
 export class Mediator {
     async onCommand(command, params) {
+        if (command === '.exit') {
+            process.exit(0);
+        }
         const commandHandler = await commandFileMap[command];
 
         try {
